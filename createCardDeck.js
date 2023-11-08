@@ -2,6 +2,40 @@
  * Returns an array of 52 Cards
  * @returns {Array} deck - a deck of cards
  */
+
+function getDeck(){
+  let suits = ['Clubs', 'Spades', 'Diamonds', 'Hearts'];
+  let ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+  let deck = new Array();
+  for (let i = 0; i < suits.length; i++){
+    for (let j = 0; j < ranks.length; j++){
+      let card = {Rank: ranks[j], Suit: suits[i], Value: ranks[j]};
+      deck.push(card);
+    }
+  }
+  
+  let transDeck = new Array()
+  for (let d = 0; d < deck.length; d++) {
+    if (deck[d].Value === 'A') {
+      deck[d].Value = 11
+    }
+    else if (deck[d].Value === 'J') {
+      deck[d].Value = 10
+    }
+    else if (deck[d].Value === 'Q') {
+      deck[d].Value = 10
+    }
+    else if (deck[d].Value === 'K') {
+      deck[d].Value = 10
+    }
+  }
+
+  return deck;
+}
+console.log(getDeck())
+//code up to here is mine
+
 const getDeck = () => {
   const deck = []
   const suits = ['hearts', 'spades', 'clubs', 'diamonds']
